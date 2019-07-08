@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let Temperature=function (C) {
+        this.C=C;
+        this.C_F =function () {
+            return 1.8 * this.C + 32;
+        };
+        this.C_K=function () {
+            return this.C +273.15;
+        };
+    };
+    let CheckTemperature= new Temperature(25);
+    alert("Độ F là: "+CheckTemperature.C_F());
+    alert("Độ K là: "+CheckTemperature.C_K());
+</script>
+</body>
+</html>
