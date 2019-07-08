@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>5</title>
+</head>
+<body>
+    <script>
+        let stars = ["Polaris","Aldebaran","Deneb","Vega","Altair","Dubhe","Regulus"];
+        let constellations = ["Ursa Minor","Tarurus","Cygnus","Lyra","Aquila","Ursa Major","Leo"];
+        let inputStar = prompt("Nhap vao ten ngoi sao :");
+        function inputString() {
+            let check=false;
+            for (let i = 0; i<stars.length; i++){
+                if(inputStar == stars[i]){
+                    check=true;
+                    alert("Sao " + stars[i] + " nam trong chom sao " + constellations[i]);
+                }
+            }
+            if (!check){
+                alert("khog ton tai")
+            }
+
+        }
+        inputString();
+    </script>
+</body>
+</html>
