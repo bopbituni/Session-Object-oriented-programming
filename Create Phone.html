@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Phone</title>
+</head>
+<body>
+<div style="border: 5px solid greenyellow background blue">
+    <p>
+        <input type="text" id="inputMessageIP" placeholder="Text Message">
+        <button type="button" onclick="ipMessage();">Send Now!</button>
+    </p>
+    <p>
+        <input type="text" id="inputMessageSS" placeholder="Text Message">
+        <button type="button" onclick="ssMessage();">Send Now</button>
+    </p>
+</div>
+<script>
+    function Mobile(phone, battery) {
+        this.name = phone;
+        this.battery = battery;
+        this.message = " ";
+        this.inbox = [];
+        this.outbox = [];
+        this.status = true;
+        this.getMessage = function (message) {
+            return this.message = message;
+        }
+        this.sendMessageInbox = function (phone) {
+            phone.inbox.push(this.message);
+        }
+        this.sendMessageOutbox = function (phone) {
+            phone.outbox.push(this.message)
+        }
+        this.getInbox = function () {
+            return this.inbox;
+        }
+        this.getOutbox = function () {
+            return this.outbox;
+        }
+        this.setInbox = function ([]) {
+            this.inbox = []
+        }
+    }
+
+    let Iphone = new Mobile('Iphone', 100);
+    let Ssung = new Mobile('Ssung', 100);
+
+    function ipMessage() {
+        Iphone.getMessage(document.getElementById("inputMessageIP").value);
+        Iphone.sendMessageInbox(Ssung);
+        Iphone.sendMessageOutbox(Iphone);
+        document.getElementById("inputMessageIP").value = null;
+        console.log(Iphone.getOutbox())
+
+        // Iphone.setInbox([]);
+    }
+
+    function ssMessage() {
+        document.getElementById("inputMessageSS").value = Ssung.getInbox();
+        alert(Ssung.getInbox());
+    }
+
+</script>
+</body>
+</html>
